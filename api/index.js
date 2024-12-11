@@ -8,13 +8,12 @@ dotenv.config();
 app.use(cors());
 app.use(express.json());
 
-// mongoose.connect(process.env.MONGO)
-// .then(() => console.log(`MongoDB Connect !!!`))
-// .catch(() => console.log(`Error While Connect MongoDB !!!`))
+mongoose.connect(process.env.MONGO)
+.then(() => console.log(`MongoDB Connect !!!`))
+.catch(() => console.log(`Error While Connect MongoDB !!!`))
 
-const port =  8954;
+const port = process.env.port || 8954;
 
 app.listen(port, () => {
-    console.log(`Server Run On Port : ${port}`);
-    
-})
+    console.log(`Server Run On Port : ${port}`);  
+});
